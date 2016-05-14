@@ -31,8 +31,10 @@
     [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor clearColor]];
    
     [self createNavigationBar];
-    _redView = [[UIView alloc]initWithFrame:CGRectMake(0, 64, 50, 45)];
+    _redView = [[UIView alloc]initWithFrame:CGRectMake(10, 64, 50, 45)];
     _redView.backgroundColor = [UIColor redColor];
+    _redView.layer.masksToBounds = YES;
+    _redView.layer.cornerRadius = 10;
     [self.view addSubview:_redView];
 }
 
@@ -99,13 +101,13 @@
         [self.navigationController.navigationBar lt_setBackgroundColor:[color colorWithAlphaComponent:alpha]];
         
         [UIView animateWithDuration:0.5 animations:^{
-            _redView.frame = CGRectMake(0, 64, self.view.frame.size.width, 45);
+            _redView.frame = CGRectMake(10, 64, self.view.frame.size.width - 20, 45);
         }];
     } else {
         [self.navigationController.navigationBar lt_setBackgroundColor:[color colorWithAlphaComponent:0]];
         
         [UIView animateWithDuration:0.5 animations:^{
-            _redView.frame = CGRectMake(0, 64, 50, 45);
+            _redView.frame = CGRectMake(10, 64, 50, 45);
         }];
 
     }
